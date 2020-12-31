@@ -23,7 +23,7 @@ jobs:
       - name: Checkout
         if: env.QQ_READ_HEADER_VAL && env.QQ_READ_TIME_URL_VAL && env.QQ_READ_TIME_HEADER_VAL
         run: |
-          git clone https://github.com/lxk0301/jd_scripts.git ~/jd_scripts
+          git clone https://github.com/ziye12/JavaScript.git ~/JavaScript
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         if: env.QQ_READ_HEADER_VAL && env.QQ_READ_TIME_URL_VAL && env.QQ_READ_TIME_HEADER_VAL
@@ -40,14 +40,14 @@ jobs:
       - name: npm install
         if: env.QQ_READ_HEADER_VAL && env.QQ_READ_TIME_URL_VAL && env.QQ_READ_TIME_HEADER_VAL
         run: |
-          cd ~/jd_scripts
+          cd ~/JavaScript
           git checkout master
           npm install
       - name: '运行 【企鹅读书】'
         if: env.QQ_READ_HEADER_VAL && env.QQ_READ_TIME_URL_VAL && env.QQ_READ_TIME_HEADER_VAL
         run: |
-          cd ~/jd_scripts/backUp
-          node qqread.js
+          cd ~/JavaScript/Task
+          node qqreads.js
         env:
           QQ_READ_HEADER_VAL: ${{ secrets.QQ_READ_HEADER_VAL }}
           QQ_READ_TIME_URL_VAL: ${{ secrets.QQ_READ_TIME_URL_VAL }}
