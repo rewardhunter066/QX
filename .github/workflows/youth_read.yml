@@ -14,6 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
     steps:
+      - name: Checkout
+        run: |
+          git clone https://github.com/songyangzz/QuantumultX.git ~/QuantumultX
       - uses: actions/checkout@v1
       - name: Use Node.js 10.x
         uses: actions/setup-node@v1
@@ -24,7 +27,8 @@ jobs:
           npm install
       - name: '运行 【中青看点自动阅读】'
         run: |
-          node Task/Youth_Read.js
+          cd ~/QuantumultX
+          node Youth_Read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ }}
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
