@@ -48,11 +48,3 @@ jobs:
           destination_branch: "main"
           github_token: ${{ secrets.PAT }}
 
-      - name: sync songyangzz-QuantumultX
-        uses: repo-sync/github-sync@v2
-        if: env.PAT
-        with:
-          source_repo: "https://github.com/songyangzz/QuantumultX.git"
-          source_branch: "master"
-          destination_branch: "main"
-          github_token: ${{ secrets.PAT }}
