@@ -35,7 +35,7 @@ jobs:
     steps:
       - name: Checkout
         run: |
-          git clone -b master https://github.com/ziye12/QCZJSPEED.git ~/QCZJSPEED
+          git clone -b main https://github.com/ziye12/QCZJSPEED.git ~/QCZJSPEED
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
