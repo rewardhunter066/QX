@@ -1,4 +1,5 @@
 # File: .github/workflows/repo-sync.yml
+
 name: 同步上游仓库
 on:
   schedule:
@@ -38,11 +39,11 @@ jobs:
           github_token: ${{ secrets.PAT }}
           
       
-      - name: sync Rules-For-Quantumult-X Rules
+      - name: sync Rules-For-Quantumult-X-Rules
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
           source_repo: "https://github.com/sve1r/Rules-For-Quantumult-X.git"
-          source_branch: "master"
-          destination_branch: "develop"
+          source_branch: "develop"
+          destination_branch: "master"
           github_token: ${{ secrets.PAT }}  
