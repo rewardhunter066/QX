@@ -36,7 +36,6 @@ jobs:
           source_branch: "master"        # mySelf仓库的分支
           destination_branch: "master"   # 你自己远程的分支
           github_token: ${{ secrets.PAT }}
-          
       
       - name: sync Rules-For-Quantumult-X-Rules
         uses: repo-sync/github-sync@v2
