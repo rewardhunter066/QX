@@ -33,6 +33,16 @@ jobs:
         if: env.PAT
         with:
           source_repo: "https://github.com/cyubuchen/TikTok_Unlock.git"
-          source_branch: "master"
-          destination_branch: "master"
+          source_branch: "master"        # mySelf仓库的分支
+          destination_branch: "master"   # 你自己远程的分支
           github_token: ${{ secrets.PAT }}
+          
+      
+      - name: sync Rules-For-Quantumult-X Rules
+        uses: repo-sync/github-sync@v2
+        if: env.PAT
+        with:
+          source_repo: "https://github.com/sve1r/Rules-For-Quantumult-X.git"
+          source_branch: "master"
+          destination_branch: "develop"
+          github_token: ${{ secrets.PAT }}  
