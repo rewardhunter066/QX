@@ -43,6 +43,6 @@ jobs:
         if: env.PAT
         with:
           source_repo: "https://github.com/sve1r/Rules-For-Quantumult-X.git"
-          source_branch: "develop"
-          destination_branch: "master"
+          source_branch: "master"
+          destination_branch: "develop"
           github_token: ${{ secrets.PAT }}  
