@@ -4,14 +4,13 @@
 name: jd_bean_home 
 
 on:
-  push:
   workflow_dispatch:
   schedule:
     - cron: '10 7 * * *'
-watch:
+  watch:
     types: started
   repository_dispatch:
-    types: bean_change
+    types: bean_home
 jobs:
   build:
 
@@ -21,7 +20,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          repository: w37fhy/JD_0301
+          repository: rewardhunter066/JD_0301
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -36,18 +35,22 @@ jobs:
       - name: npm install
         run: |
           npm install
-      - name: '运行 【领京豆额外奖励】'
+      - name: '运行 【京豆额外奖励】'
         run: |
           node jd_bean_home.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
-          UN_SUBSCRIBES: ${{ secrets.UN_SUBSCRIBES }}
+          JD_USER_AGENT: ${{ secrets.JD_USER_AGENT }}
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
           BARK_PUSH: ${{ secrets.BARK_PUSH }}
+          BARK_SOUND: ${{ secrets.BARK_SOUND }}
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_USER_ID: ${{ secrets.TG_USER_ID }}
-          BARK_SOUND: ${{ secrets.BARK_SOUND }}
           DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
           DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
           IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
+          QQ_SKEY: ${{ secrets.QQ_SKEY }}
+          QQ_MODE: ${{ secrets.QQ_MODE }}
+          PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN }}
+          PUSH_PLUS_USER: ${{ secrets.PUSH_PLUS_USER }}
