@@ -37,6 +37,16 @@ jobs:
           destination_branch: "master"   # 你自己远程的分支
           github_token: ${{ secrets.PAT }}
       
+      - name: sync README
+        uses: repo-sync/github-sync@v2
+        if: env.PAT
+        with:
+          source_repo: "https://github.com/Maomaoyu0319/JD_0301.git"
+          source_branch: "master"
+          destination_branch: "maser"
+          github_token: ${{ secrets.PAT }}  
+          
+              
       - name: sync Rules-For-Quantumult-X-Rules
         uses: repo-sync/github-sync@v2
         if: env.PAT
